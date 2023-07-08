@@ -1,0 +1,29 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<!--
+
+enctype="text/plain" : datalar düz text i gitsin? tercih edilmez
+
+enctype="multipart/form-data" : input file kullanıyorsak olmak zorunda
+
+enctype="application/x-www-form-urlencoded" : veriler encode edilmeliyse
+
+-->
+
+<form method="post" asp-action="Add" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="name" />
+    <button type="submit">Kaydet</button>
+</form>
+
+<a asp-action="DeleteFirstItem" >Baştan Sil</a></h2>
+
+@foreach(var item in Model)
+{
+    <h2>@item <a asp-controller="ListType"  asp-action="DeleteItem" asp-route-name="@item">Sil</a></h2>
+}

@@ -31,6 +31,8 @@ KEYS * > redisteki herşeyi getirir
 FLUSHDB > OK : deletes the keys in a database
 FLUSHALL > OK : deletes all keys in all databases
 
+select 1 > OK : rediste 15 db var, hangisiyle çalışmak istiyorsak onu seçebiliriz
+
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 - string veri tipi komutları - herşey serileştirilerek tutulabilir max 512MB
