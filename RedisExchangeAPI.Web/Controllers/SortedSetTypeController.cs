@@ -11,13 +11,13 @@ namespace RedisExchangeAPI.Web.Controllers
     /// </summary>
     public class SortedSetTypeController : Controller
     {
-        private readonly ILogger<SetTypeController> _logger;
+        private readonly ILogger<SortedSetTypeController> _logger;
         private readonly RedisService _redisService;
 
         private readonly IDatabase db;
         private string listKey = "sortedsetnames";
 
-        public SortedSetTypeController(ILogger<SetTypeController> logger, RedisService redisService)
+        public SortedSetTypeController(ILogger<SortedSetTypeController> logger, RedisService redisService)
         {
             _logger = logger;
             _redisService = redisService;
