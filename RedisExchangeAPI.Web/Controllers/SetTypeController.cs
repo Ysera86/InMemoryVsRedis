@@ -15,59 +15,66 @@ namespace RedisExchangeAPI.Web.Controllers
         private readonly RedisService _redisService;
 
         private readonly IDatabase db;
-        private string listKey = "names";
+        private string listKey = "hashnames";
 
         public SetTypeController(ILogger<SetTypeController> logger, RedisService redisService)
         {
             _logger = logger;
             _redisService = redisService;
 
-            db = _redisService.GetDb(1);
+            db = _redisService.GetDb(2);
         }
 
         public IActionResult Index()
         {
-            List<string> list = new List<string>();
+            HashSet<string> list = new HashSet<string>();
 
             if (db.KeyExists(listKey))
             {
-                db.ListRange(listKey).ToList().ForEach(x=> 
+                db.SetMembers(listKey).ToList().ForEach(x =>
                 {
                     list.Add(x.ToString());
-                }); // 0 -1
+                });
             }
 
             return View(list);
         }
 
         [HttpPost]
-        public  IActionResult Add(string name)
+        public IActionResult Add(string name)
         {
-           db.ListRightPush(listKey,name);
-            // db.ListLeftPush(listKey,name);
+            // -> sliding özelliği ilgili data her get edildiğinde bu şekilde yeniden set edilerek kazandırılabilir
+            db.KeyExpire(listKey, DateTime.Now.AddMinutes(5));
+
+            //// -> bu absolute.
+            //if (!db.KeyExists(listKey))
+            //{
+            //    db.KeyExpire(listKey, DateTime.Now.AddMinutes(5)); 
+            //}
+
+            db.SetAdd(listKey, name); // aynı name eklenmicek: unique
+
+            //db.SetRandomMembers(listKey, 2);
+            //db.SetPop(listKey);
+            //db.SetLength(listKey);
+            //....
 
             return RedirectToAction("Index");
         }
-        /*
-          LRANGE names 0 -1
-            xxxxx
-            yyyy
-         */
 
 
-       
-        public  async Task<IActionResult> DeleteItem(string name) // tag helper ile index.cshtml de asp-route-name ile argument adını verdik
+
+
+        //public IActionResult DeleteItem(string name)
+        //{
+        //    db.SetRemove(listKey, name);
+
+        //    return RedirectToAction("Index");
+        //}
+
+        public async Task<IActionResult> DeleteItem(string name)
         {
-           db.ListRemoveAsync(listKey,name).Wait();
-
-
-            return RedirectToAction("Index");
-        }
-        public  IActionResult DeleteFirstItem()
-        {
-            db.ListLeftPop(listKey);
-            //db.ListRightPop(listKey);
-
+            await db.SetRemoveAsync(listKey, name);
 
             return RedirectToAction("Index");
         }
