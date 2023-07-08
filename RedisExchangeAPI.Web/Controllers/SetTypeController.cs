@@ -7,17 +7,17 @@ using System.Diagnostics;
 namespace RedisExchangeAPI.Web.Controllers
 {
     /// <summary>
-    /// C#.LinkedList
+    /// C#.HashSet
     /// </summary>
-    public class ListTypeController : Controller
+    public class SetTypeController : Controller
     {
-        private readonly ILogger<ListTypeController> _logger;
+        private readonly ILogger<SetTypeController> _logger;
         private readonly RedisService _redisService;
 
         private readonly IDatabase db;
         private string listKey = "names";
 
-        public ListTypeController(ILogger<ListTypeController> logger, RedisService redisService)
+        public SetTypeController(ILogger<SetTypeController> logger, RedisService redisService)
         {
             _logger = logger;
             _redisService = redisService;

@@ -11,12 +11,12 @@ namespace RedisExchangeAPI.Web.Controllers
     /// </summary>
     public class StringTypeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<StringTypeController> _logger;
         private readonly RedisService _redisService;
 
         private readonly IDatabase db;
 
-        public StringTypeController(ILogger<HomeController> logger, RedisService redisService)
+        public StringTypeController(ILogger<StringTypeController> logger, RedisService redisService)
         {
             _logger = logger;
             _redisService = redisService;
