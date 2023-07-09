@@ -1,6 +1,6 @@
 # InMemoryVsRedis .Net 7 >  Caching InMemoryCache vs REDIS
 
-------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
 
 Docker desktop indirdik. Docker ile REDIS (REmote DIctionary Server) kullanımı
 
@@ -26,7 +26,7 @@ Here are the commands to retrieve key value(s):
 	select 1 > OK : rediste 15 db var, hangisiyle çalışmak istiyorsak onu seçebiliriz
 
 
-------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
 
 
 1. docker run --name some-redis -d redis > hub.docker.comdan redis image kurulumu yapıldı : ismi some redis 
@@ -40,7 +40,7 @@ Here are the commands to retrieve key value(s):
 9. ping yazım PONG aldm. redis clienta başarılı bir şekilde  bağlandım.
 
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+------------------------------------------------------------------------------------------------------------------------------------
 
 - string veri tipi komutları - herşey serileştirilerek tutulabilir max 512MB
 
@@ -65,7 +65,7 @@ Here are the commands to retrieve key value(s):
 28. redis-cli --raw > --raw ile yeniden başlattım. encode edilmemiş olan -ing dışındaki karakteri okuyabilek için encode edilmiş hale getiriyor
 29.  get name > uğursaç
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+------------------------------------------------------------------------------------------------------------------------------------
 
 - list veri tipi komutları - : C#.LinkedList  başa ve ya sona ekler ve siler
 
@@ -103,7 +103,7 @@ Here are the commands to retrieve key value(s):
 23. LINDEX books 0
 	"book2"
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+------------------------------------------------------------------------------------------------------------------------------------
 
 - SET veri tipi komutları - list gibi indexi var. datalar unique olmalı.  random eklenir data. başa ve ya sona ekle gibi karar belirleyemeyiz.
 
@@ -120,7 +120,7 @@ Here are the commands to retrieve key value(s):
 	1) "blue"
 	2) "green"
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+------------------------------------------------------------------------------------------------------------------------------------
 
 - SORTED SET veri tipi komutları - list gibi indexi var. datalar unique olmalı.  veriyi nereye ekleyebileceğimizi seçebiliyoruz : score üzerinden. score unique olomak zorunda değil
 
@@ -159,7 +159,7 @@ Here are the commands to retrieve key value(s):
 	book5
 	book10
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+------------------------------------------------------------------------------------------------------------------------------------
 
 - HASH veri tipi komutları - C#.dictionary 
 
@@ -175,7 +175,7 @@ Here are the commands to retrieve key value(s):
 	çanta
 
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+------------------------------------------------------------------------------------------------------------------------------------
 
 - stream kaldı 
 
