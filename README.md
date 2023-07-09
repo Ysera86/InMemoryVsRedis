@@ -19,15 +19,15 @@ Here are the commands to retrieve key value(s):
 ------------------------------------------------------------------
 
 
-1 - docker run --name some-redis -d redis > hub.docker.comdan redis image kurulumu yapıldı : ismi some redis 
-2 - docker ps >	tüm dosker imageleri listendi (örn container Id d234234242)
-3 - docker stop d23 > containerIdnin ilk 3 karakterini verip o containerı stop ettim -ki silebileyim (port maplicem)
-4 - docker rm d23 > ilgili container silindi : remove
-5 - docker run -p 6380:6379 --name some-redis -d redis > ile yeniden redis kuruldu, bu sefer senin def portun olan 6379 bendeki 6380e denk gelsin dedik. localhost:6380 diyebilmem için.
-6 - docker ps > tüm docker imageleri listendi (bu sefer örn container Id sd24234242)
-7 - docker exec -it sd2 sh > it :interactive sh shell > containera bağlandım
-8 - redis-cli > REDIS client terminali içine girdim.
-9 - ping yazım PONG aldm. redis clienta başarılı bir şekilde  bağlandım.
+1. docker run --name some-redis -d redis > hub.docker.comdan redis image kurulumu yapıldı : ismi some redis 
+2. docker ps >	tüm dosker imageleri listendi (örn container Id d234234242)
+3. docker stop d23 > containerIdnin ilk 3 karakterini verip o containerı stop ettim -ki silebileyim (port maplicem)
+4. docker rm d23 > ilgili container silindi : remove
+5. docker run -p 6380:6379 --name some-redis -d redis > ile yeniden redis kuruldu, bu sefer senin def portun olan 6379 bendeki 6380e denk gelsin dedik. localhost:6380 diyebilmem için.
+6. docker ps > tüm docker imageleri listendi (bu sefer örn container Id sd24234242)
+7. docker exec -it sd2 sh > it :interactive sh shell > containera bağlandım
+8. redis-cli > REDIS client terminali içine girdim.
+9. ping yazım PONG aldm. redis clienta başarılı bir şekilde  bağlandım.
 
 - type <key>   > key in typeını almak için. her tipin komutları farklı olduğu için bilmek gerekli.
 - KEYS * > redisteki herşeyi getirir
